@@ -1,3 +1,35 @@
 # Building RAG with Spring 
-RAG using Spring AI
+RAG using Spring Boot + Spring AI + PostgreSQL
+## Setup
+1. Install and open Docker desktop  
+2. Install Ollama and pull down `mxbai-embed-large` embeddings model
+3. Install Liquibase
+4. Install Postman
+5. Run `RagApplication.java`
+6. Open pgAdmin:
+
+```
+http://localhost:8081/browser/
+```
+Get the credentials from `docker-compose` file
+## Endpoints
+Follow the above steps first. Open Postman client and hit below endpoints:
+- To get embeddings of a string
+```
+http://localhost:8080/spring/ai/embedding/string?message=hello
+```
+- To generate embeddings of products
+```
+http://localhost:8080/spring/ai/embedding/products
+```
+See the logs. 
+- To get products based on user query
+```
+http://localhost:8080/spring/ai/user/query?query=shoes
+```
+- To get products based on product name itself
+```
+http://localhost:8080/spring/ai/user/product?productName=Blender
+```
+
 ## Arch Diagram
