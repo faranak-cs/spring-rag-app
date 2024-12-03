@@ -1,0 +1,44 @@
+@startuml
+
+package "Client" {
+  [Postman] as P
+}
+
+node "RAG (a java app)" {
+
+    package "Controller" as C {
+        [Embedding]
+        [UserQuery]
+    }
+    package "Service Layer" as SL {
+        [Ollama] as O
+        [PGVector] as PGV
+    }
+    package "Repository Layer" as RL {
+        [Product] as PD
+        [Embedding] as EM
+    }
+    package "Migration" as M {
+        [Liquibase] as L
+    }
+}
+
+node "Docker" {
+    database "Database" {
+    [PostgreSQL] as PG
+    }
+    package "Browser" as B {
+        [pgAdmin] as PGA
+    }
+}
+
+
+P <---> C : http 
+C <-> O : model
+O <-> PGV : model 
+PGV <-> PD : model
+RL <---> PG : http
+PG -> PGA : view
+L .....> PG : migrate
+
+@enduml
