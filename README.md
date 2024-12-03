@@ -43,3 +43,4 @@ http://localhost:8080/spring/ai/user/product?productName=Blender
 ```
 
 ## Arch Diagram
+![arch_diagram](https://github.com/user-attachments/assets/bdbf258f-cd19-48f7-b8d8-2d97d8b8c034)
