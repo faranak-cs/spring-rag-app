@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: rag
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vectordb
+    username: postgres
+    password: postgres
+  ai:
+    ollama:
+      embedding:
+        options:
+          model: mxbai-embed-large
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddt-auto: update
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
