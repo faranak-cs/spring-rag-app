@@ -11,16 +11,14 @@ RAG using Spring Boot + Spring AI + PostgreSQL
   
 ## Setup
 1. Install and open Docker desktop  
-2. Install Ollama and pull down `mxbai-embed-large` embeddings model
-3. Install Liquibase
-4. Install Postman
-5. Run `RagApplication.java`
-6. Open pgAdmin:
-
+2. Install Ollama and pull down the following embeddings model:
 ```
-http://localhost:8081/browser/
+ollama pull mxbai-embed-large
 ```
-Get the credentials from `docker-compose` file
+3. Run the project:
+```
+.\mvnw spring-boot:run
+```
 
 ## Endpoints
 Follow the above steps first. Open Postman client and hit below endpoints:
