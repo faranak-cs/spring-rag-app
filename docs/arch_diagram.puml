@@ -38,7 +38,7 @@ C <-> O : model
 O <-> PGV : model 
 PGV <-> PD : model
 RL <---> PG : http
-PG -> PGA : view
-L .....> PG : migrate
+PG -> PGA : http
+L .....> PG : http
 
 @enduml
