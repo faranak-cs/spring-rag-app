@@ -3,6 +3,9 @@ spring:
     name: rag
   profiles:
     active: local
+  docker:
+    compose:
+      file: docker-compose.yml
   datasource:
     url: jdbc:postgresql://localhost:5432/vectordb
     username: postgres
@@ -12,8 +15,8 @@ spring:
       base-url: http://localhost:11434
       init:
         pull-model-strategy: when_missing
-        timeout: 60s
-        max-retries: 1
+        timeout: 5m
+        max-retries: 3
       chat:
         options:
           model: llama3.1
@@ -29,3 +32,6 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
+grpc:
+  server:
+    port: 9090

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.spring.rag.service.proto";
+option java_outer_classname = "ChatProto";
+
+service Chat {
+    rpc ChatWithLLM(stream UserQuery) returns (stream LLMResponse);
+}
+
+message UserQuery {
+    string query = 1;
+}
+
+message LLMResponse {
+    string response = 1;
+}
