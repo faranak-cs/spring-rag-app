@@ -15,7 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
             "SELECT productid, productname, productdescription " +
                     "FROM products p " +
                     "JOIN embeddings e ON p.productid = e.id " +
-                    "WHERE 1 - (embedding <=> CAST(:embedding as vector)) > 0.5 " +
+                    "WHERE 1 - (embedding <=> CAST(:embedding as vector)) > 0.45 " +
                     "LIMIT 5", nativeQuery = true)
     List<Product> getSimilarProducts(@Param("embedding") float[] embedding);
 
