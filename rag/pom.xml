@@ -18,6 +18,7 @@
 		<java.version>21</java.version>
 		<spring.ai.version>1.0.0-SNAPSHOT</spring.ai.version>
 		<liquibase.version>4.27.0</liquibase.version>
+		<testcontainers.version>1.20.4</testcontainers.version>
 	</properties>
 	<dependencies>
 		<!--	Hibernate Support	-->
@@ -61,38 +62,6 @@
 			<optional>true</optional>
 		</dependency>
 		<!--	gRPC Support	-->
-<!--		<dependency>-->
-<!--			<groupId>com.google.code.gson</groupId>-->
-<!--			<artifactId>gson</artifactId>-->
-<!--			<version>2.11.0</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>io.grpc</groupId>-->
-<!--			<artifactId>grpc-netty-shaded</artifactId>-->
-<!--			<scope>runtime</scope>-->
-<!--			<version>1.65.1</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>io.grpc</groupId>-->
-<!--			<artifactId>grpc-stub</artifactId>-->
-<!--			<version>1.64.0</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>io.grpc</groupId>-->
-<!--			<artifactId>grpc-services</artifactId>-->
-<!--			<version>1.65.1</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>io.grpc</groupId>-->
-<!--			<artifactId>grpc-alts</artifactId>-->
-<!--			<version>1.65.1</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>io.grpc</groupId>-->
-<!--			<artifactId>grpc-testing</artifactId>-->
-<!--			<version>1.65.1</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>javax.annotation</groupId>
 			<artifactId>javax.annotation-api</artifactId>
@@ -103,13 +72,26 @@
 			<artifactId>grpc-server-spring-boot-starter</artifactId>
 			<version>3.1.0.RELEASE</version>
 		</dependency>
-		<!--	Test Support	-->
+		<!--	Testing Support	-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>testcontainers</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
 	</dependencies>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -121,6 +103,13 @@
 				<groupId>org.springframework.ai</groupId>
 				<artifactId>spring-ai-bom</artifactId>
 				<version>${spring.ai.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testcontainers</groupId>
+				<artifactId>testcontainers-bom</artifactId>
+				<version>${testcontainers.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
