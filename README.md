@@ -72,3 +72,7 @@ Follow the above steps first. Open Postman client and hit below endpoints:
 
 ## Arch Diagram
 ![arch_diagram](https://github.com/user-attachments/assets/b7fda6ef-28ef-436a-9d65-07e38d45909f)
+
+## Useful Links
+- https://docs.spring.io/spring-ai/reference/api/embeddings/ollama-embeddings.html
+- https://github.com/grpc-ecosystem/grpc-spring
